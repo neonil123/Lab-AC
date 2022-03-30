@@ -1,4 +1,12 @@
 steps:
   - name: maven:3-jdk-8
     entrypoint: mvn
-    args: ['--version']
+    args: ["test"]
+  - name: maven:3-jdk-8
+    entrypoint: mvn
+    args: ["package", "-Dmaven.test.skip=true"]
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'gcr.io/agile-future-341314/lab_ac', '--build-arg=JAR_FILE=target/LabAC.jar', '.']
+images: ['gcr.io/agile-future-341314/lab_ac']
+
+
