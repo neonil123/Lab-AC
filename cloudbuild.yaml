@@ -1,4 +1,4 @@
- steps:
-  - name: maven:3-jdk-11
-    entrypoint: mvn
-    args: ['--version']
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'gcr.io/agile-future-341314/labac', '--build-arg=JAR_FILE=target/LabAC.jar', '.']
+images: ['gcr.io/agile-future-341314/labac']
