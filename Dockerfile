@@ -1,6 +1,6 @@
 FROM openjdk:17-oracle as build
 
-COPY /.mvn  /.mvn
+COPY .mvn  .mvn
 COPY mvnw .
 COPY pom.xml .
 COPY src src
